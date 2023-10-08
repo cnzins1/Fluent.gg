@@ -5,7 +5,12 @@ local ThemeManager = {} do
 
 	ThemeManager.Library = nil
 	ThemeManager.BuiltInThemes = {
-        	['Fluent.gg'] = { 1, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"2f302c","AccentColor":"a5b369","BackgroundColor":"171714","OutlineColor":"3b3d37"}') }
+    ['Fluent.gg'] = { 1, httpService:JSONDecode('{"FontColor":"#ffbf00","MainColor":"#000000","AccentColor":"#ffbf00","BackgroundColor":"#000000","OutlineColor":"#ffbf00"}') },
+		['Green'] 			= { 4, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"141414","AccentColor":"00ff8b","BackgroundColor":"1c1c1c","OutlineColor":"3c3c3c"}') },
+		['Jester'] 			= { 5, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"242424","AccentColor":"db4467","BackgroundColor":"1c1c1c","OutlineColor":"373737"}') },
+		['Mint'] 			= { 6, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"242424","AccentColor":"3db488","BackgroundColor":"1c1c1c","OutlineColor":"373737"}') },
+		['Tokyo Night'] 	= { 7, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"191925","AccentColor":"6759b3","BackgroundColor":"16161f","OutlineColor":"323232"}') },
+		['Ubuntu'] 			= { 8, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"3e3e3e","AccentColor":"e2581e","BackgroundColor":"323232","OutlineColor":"191919"}') },
 	}
 
 	function ThemeManager:ApplyTheme(theme)
@@ -42,7 +47,7 @@ local ThemeManager = {} do
 	end
 
 	function ThemeManager:LoadDefault()		
-		local theme = 'Fluent.gg'
+		local theme = 'Artic'
 		local content = isfile(self.Folder .. '/themes/default.txt') and readfile(self.Folder .. '/themes/default.txt')
 
 		local isDefault = true
@@ -174,7 +179,7 @@ local ThemeManager = {} do
 		for i = 1, #list do
 			local file = list[i]
 			if file:sub(-5) == '.json' then
-				-- i hate this but it has to be done ...
+				--  ...
 
 				local pos = file:find('.json', 1, true)
 				local char = file:sub(pos, pos)
